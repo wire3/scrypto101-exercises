@@ -1,0 +1,22 @@
+# Step 1: Call the `lock_fee` method on your account component with a parameter of Decimal("10")
+
+
+# Step 2: Withdraw 25 XRD from your account component and create a bucket named `xrd` with it.
+
+
+# Step 3: Call the `become_member` method on the instantiated component
+
+
+# Step 4: A member NFT badge was returned from the previous call. Create a bucket named `member_badge` from it.
+# Tip: You already know the resource address of the member nft.
+
+
+# Step 5: Create a Proof named "member_proof" from the `member_badge` bucket
+
+
+# Step 6: Call the `stake_xrd` method on the instantiated_component and provide the named Bucket and Proof as arguments
+
+
+# Step 7: The member badge returned from the `become_member` method 
+# has not been stored in a vault yet. Deposit it back into your account
+

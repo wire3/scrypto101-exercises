@@ -1,0 +1,21 @@
+# Lock the fees for the transaction
+CALL_METHOD ComponentAddress("${account_address}") "lock_fee" Decimal("10");
+
+# Withdraw some XRD to stake from the account component
+CALL_METHOD ComponentAddress("${account_address}") "withdraw_by_amount" Decimal("25") ResourceAddress("${xrd}");
+TAKE_FROM_WORKTOP ResourceAddress("${xrd}") Bucket("xrd");
+
+# Call the `become_member` method
+CALL_METHOD ComponentAddress("${component_address}") "become_member";
+
+# Make a bucket of the member badge that was returned
+TAKE_FROM_WORKTOP ResourceAddress("${member_address}") Bucket("member_badge");
+
+# Create a proof from the member_badge bucket
+CREATE_PROOF_FROM_BUCKET Bucket("member_badge") Proof("member_proof");
+
+# Call the stake_xrd method
+CALL_METHOD ComponentAddress("${component_address}") "stake_xrd" Bucket("xrd") Proof("member_proof");
+
+# The member badge has not been stored in a vault. Deposit it back into your account
+CALL_METHOD ComponentAddress("${account_address}") "deposit" Bucket("member_badge");
