@@ -6,6 +6,7 @@ Follow the steps in [the code file](code/src/lib.rs) and don't hesitate to valid
 ## How to run your code with resim
 1. Reset your ledger with: `resim reset`
 1. Create a new default account: `resim new-account` -> Store the address of the account somewhere.
+1. Create an owner badge: `resim new-simple-badge`
 1. Publish your code: `resim publish ./code`
 1. Instantiate a new component: `resim call-function [package_address] Exercise1 instantiate_exercise` -> Save the returned component address and first resource address. This first resource address represents the banana resource.
 1. Call the `mint_apple` method: `resim call-method [component_address] mint_apple`

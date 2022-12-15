@@ -15,13 +15,15 @@ blueprint! {
         pub fn instantiate_exercise() -> ComponentAddress {
 
             // Step 1: Create a new fungible resource with a name "Banana" and symbol "BNN".
-            // Make the resource burnable with a LOCKED `allow_all` rule.
+            // Make the resource burnable with an `allow_all` rule. Don't forget to make this flag unchangeable
+            // by specifying `deny_all` in the second parameter.
             // Make the initial supply 1000 and store it inside a `bananas` variable.
 
 
 
             // Step 2: Create a new fungible resource with a name "Apple" and symbol "APP".
-            // Make the resource mintable with a LOCKED `allow_all` rule.
+            // Make the resource mintable with an `allow_all` rule. Don't forget to make this flag unchangeable
+            // by specifying `deny_all` in the second parameter.
             // Initialize the resource with no initial supply and store the ResourceAddress in a `apples` variable.
 
 

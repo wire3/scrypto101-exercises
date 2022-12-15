@@ -13,13 +13,13 @@ blueprint! {
             let bananas: Bucket = ResourceBuilder::new_fungible()
                 .metadata("name", "Banana")
                 .metadata("symbol", "BNN")
-                .burnable(rule!(allow_all), LOCKED)
+                .burnable(rule!(allow_all), rule!(deny_all))
                 .initial_supply(1000);
 
             let apples: ResourceAddress = ResourceBuilder::new_fungible()
                 .metadata("name", "Apple")
                 .metadata("symbol", "APP")
-                .mintable(rule!(allow_all), LOCKED)
+                .mintable(rule!(allow_all), rule!(deny_all))
                 .no_initial_supply();
 
             Self {
