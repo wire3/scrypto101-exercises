@@ -22,8 +22,9 @@ blueprint! {
             // This will be the badge that is allowed to mint member badges. Store the token in a `member_manager_badge` variable.
 
 
-            // Step 3: Create a non-fungible resource that is `mintable` and `updateable_non_fungible_data`
-            // by someone showing ownership of the `member_manager_badge`. Initialize the resource with no initial supply and store the result
+            // Step 3: Create a non-fungible resource with IDs of type `The IDs of this resource will be of type `NonFungibleIdType::UUID`` 
+            // that is `mintable` and `updateable_non_fungible_data` by someone showing ownership of
+            // the `member_manager_badge`. Initialize the resource with no initial supply and store the result
             // in a `member_badge` variable.
 
 

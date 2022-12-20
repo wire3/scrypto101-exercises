@@ -1,6 +1,6 @@
 use scrypto::prelude::*;
 
-#[derive(TypeId, Encode, Decode, Describe, Debug)]
+#[scrypto(TypeId, Encode, Decode, Debug, Describe)]
 enum Vegetable {
     Tomato,
     Carrot,

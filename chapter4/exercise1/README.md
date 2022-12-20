@@ -6,8 +6,9 @@ Follow the steps in [the code file](code/src/lib.rs) to get started and don't he
 ## How to test the solution with resim
 1. Reset your ledger with: `resim reset`
 1. Create a new default account: `resim new-account`
-1. Publish your code: `resim publish ./code`
+1. Create an owner badge: `resim new-simple-badge`
+1. Publish your code: `resim publish ./code --owner-badge [owner_badge_NFAddress]`
 1. Instantiate a new component: `resim call-function [package_address] Exercise1 instantiate_exercise` -> Save the returned component address and second resource address. This last address represents the member NFT.
 1. Call the `become_member` method: `resim call-method [component_address] become_member`
-1. Stake 25 XRD by calling `resim call-method [component_address] stake_xrd 25,resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag 1,[member_badge_address]`
+1. Stake 25 XRD by calling `resim call-method [component_address] stake_xrd 25,resource_sim1qzkcyv5dwq3r6kawy6pxpvcythx8rh8ntum6ws62p95sqjjpwr 1,[member_badge_address]`
 1. Withdraw the staked XRD by calling: `resim call-method [component_address] withdraw 1,[member_badge_address]`

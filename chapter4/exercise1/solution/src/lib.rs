@@ -23,12 +23,13 @@ blueprint! {
                 .initial_supply(1);
 
             // Define the member badge non fungible resource.
+            // The IDs of this resource will be of type `NonFungibleIdType::UUID`
             // It is mintable and the individual metadata can be updated if a proof
             // of the member_manager badge is presented.
-            let member_badge = ResourceBuilder::new_non_fungible()
+            let member_badge = ResourceBuilder::new_non_fungible(NonFungibleIdType::UUID)
                 .metadata("name", "Member Badge")
-                .mintable(rule!(require(member_manager_badge.resource_address())), LOCKED)
-                .updateable_non_fungible_data(rule!(require(member_manager_badge.resource_address())), LOCKED)
+                .mintable(rule!(require(member_manager_badge.resource_address())), rule!(deny_all))
+                .updateable_non_fungible_data(rule!(require(member_manager_badge.resource_address())), rule!(deny_all))
                 .no_initial_supply();
 
             Self {
