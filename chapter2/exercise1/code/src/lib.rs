@@ -4,7 +4,7 @@ use scrypto::prelude::*;
 //   - Tomato
 //   - Carrot
 //   - Broccoli
-// Don't forget to add a call the the `scrypto` macro with TypeId, Encode, Decode, Describe and Debug.
+// Don't forget to add a call to the `scrypto` macro with TypeId, Encode, Decode, Describe and Debug.
 // This last one, Debug, is neccessary as we are going to display it's value.
 
 
