@@ -1,13 +1,14 @@
 use scrypto::prelude::*;
 
-#[scrypto(TypeId, Encode, Decode, Debug, Describe)]
+#[derive(ScryptoCategorize, ScryptoEncode, ScryptoDecode, LegacyDescribe, Debug)]
 enum Vegetable {
     Tomato,
     Carrot,
     Broccoli
 }
 
-blueprint! {
+#[blueprint]
+mod exercise_module {
     struct Exercise1 {
         instantiated_at: u64,
         instantiator_name: String,

@@ -3,9 +3,8 @@ You are tasked with writing a transaction manifest that interacts with the bluep
 
 1. `resim reset`
 2. `resim new-account` -> Save the account address somewhere
-3. `resim new-simple-badge`
-4. `resim publish ./code --owner-badge [owner_badge_NFAddress]`
-5. `resim call-function [package_address] Exercise1 instantiate_exercise` -> Save the component address and the member badge address somewhere
+3. `resim publish ./code`
+4. `resim call-function [package_address] Exercise1 instantiate_exercise` -> Save the component address and the member badge address somewhere
 
 You are now ready to fill the `your_manifest.rtm` file. Open this file to see the steps to follow.
 
