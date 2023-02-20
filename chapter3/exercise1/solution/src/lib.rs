@@ -1,6 +1,7 @@
 use scrypto::prelude::*;
 
-blueprint! {
+#[blueprint]
+mod exercise_module {
     struct Exercise1 {
         bananas: Vault,
         apples_resource_address: ResourceAddress
@@ -13,14 +14,14 @@ blueprint! {
             let bananas: Bucket = ResourceBuilder::new_fungible()
                 .metadata("name", "Banana")
                 .metadata("symbol", "BNN")
-                .burnable(rule!(allow_all), rule!(deny_all))
-                .initial_supply(1000);
+                .burnable(rule!(allow_all), LOCKED)
+                .mint_initial_supply(1000);
 
             let apples: ResourceAddress = ResourceBuilder::new_fungible()
                 .metadata("name", "Apple")
                 .metadata("symbol", "APP")
-                .mintable(rule!(allow_all), rule!(deny_all))
-                .no_initial_supply();
+                .mintable(rule!(allow_all), LOCKED)
+                .create_with_no_initial_supply();
 
             Self {
                 bananas: Vault::with_bucket(bananas),

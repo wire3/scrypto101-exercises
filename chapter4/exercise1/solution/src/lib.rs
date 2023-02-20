@@ -2,11 +2,12 @@ use scrypto::prelude::*;
 
 #[derive(NonFungibleData)]
 struct MemberData {
-    #[scrypto(mutable)]
+    #[mutable]
     amount_staked: Decimal
 }
 
-blueprint! {
+#[blueprint]
+mod exercise_module {
     struct Exercise1 {
         xrd_vault: Vault,
         manager_badge: Vault,
@@ -20,17 +21,17 @@ blueprint! {
             // and allow it to mint member badges
             let member_manager_badge = ResourceBuilder::new_fungible()
                 .divisibility(DIVISIBILITY_NONE)
-                .initial_supply(1);
+                .mint_initial_supply(1);
 
             // Define the member badge non fungible resource.
             // The IDs of this resource will be of type `NonFungibleIdType::UUID`
             // It is mintable and the individual metadata can be updated if a proof
             // of the member_manager badge is presented.
-            let member_badge = ResourceBuilder::new_non_fungible(NonFungibleIdType::UUID)
+            let member_badge = ResourceBuilder::new_uuid_non_fungible()
                 .metadata("name", "Member Badge")
                 .mintable(rule!(require(member_manager_badge.resource_address())), rule!(deny_all))
                 .updateable_non_fungible_data(rule!(require(member_manager_badge.resource_address())), rule!(deny_all))
-                .no_initial_supply();
+                .create_with_no_initial_supply();
 
             Self {
                 xrd_vault: Vault::new(RADIX_TOKEN),
@@ -50,7 +51,7 @@ blueprint! {
 
             self.manager_badge.authorize(|| {
                 borrow_resource_manager!(self.member_resource_address)
-                    .mint_non_fungible(&NonFungibleId::random(), data)
+                    .mint_uuid_non_fungible(data)
             })
         }
 
@@ -71,7 +72,7 @@ blueprint! {
 
             self.manager_badge.authorize(|| {
                 borrow_resource_manager!(self.member_resource_address)
-                    .update_non_fungible_data(&non_fungible.id(), member_data);
+                    .update_non_fungible_data(&non_fungible.local_id(), member_data);
             });
         }
 
@@ -90,7 +91,7 @@ blueprint! {
 
             self.manager_badge.authorize(|| {
                 borrow_resource_manager!(self.member_resource_address)
-                    .update_non_fungible_data(&non_fungible.id(), member_data);
+                    .update_non_fungible_data(&non_fungible.local_id(), member_data);
             });
 
             // Return their staked XRD
