@@ -4,13 +4,14 @@ use scrypto::prelude::*;
 //   - Tomato
 //   - Carrot
 //   - Broccoli
-// Don't forget to add a call to the `scrypto` macro with TypeId, Encode, Decode, Describe and Debug.
+// Don't forget to add a call to the `derive` macro with ScryptoCategorize, ScryptoEncode, ScryptoDecode, LegacyDescribe and Debug.
 // This last one, Debug, is neccessary as we are going to display it's value.
 
 
 
 
-blueprint! {
+#[blueprint]
+mod exercise_module {
     struct Exercise1 {
         // Step 1: Add two variables here. 
         //   - One u64 named `instantiated_at`. This will contain the epoch at which the component was instantiated

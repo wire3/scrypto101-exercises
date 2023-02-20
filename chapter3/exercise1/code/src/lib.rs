@@ -1,6 +1,7 @@
 use scrypto::prelude::*;
 
-blueprint! {
+#[blueprint]
+mod exercise_module {
     struct Exercise1 {
         // Step 3: Add two variables to the Struct of the blueprint.
         //   - a Vault named `bananas`
@@ -16,14 +17,14 @@ blueprint! {
 
             // Step 1: Create a new fungible resource with a name "Banana" and symbol "BNN".
             // Make the resource burnable with an `allow_all` rule. Don't forget to make this flag unchangeable
-            // by specifying `deny_all` in the second parameter.
-            // Make the initial supply 1000 and store it inside a `bananas` variable.
+            // by specifying `LOCKED` in the second parameter.
+            // Make the initial supply 1000 and store it inside a `bananas` Bucket variable.
 
 
 
             // Step 2: Create a new fungible resource with a name "Apple" and symbol "APP".
             // Make the resource mintable with an `allow_all` rule. Don't forget to make this flag unchangeable
-            // by specifying `deny_all` in the second parameter.
+            // by specifying `LOCKED` in the second parameter.
             // Initialize the resource with no initial supply and store the ResourceAddress in a `apples` variable.
 
 
