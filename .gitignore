@@ -18,3 +18,7 @@ flamegraph.svg
 # Front end build folders
 build/
 node_modules/
+
+# Added by cargo
+
+/target
