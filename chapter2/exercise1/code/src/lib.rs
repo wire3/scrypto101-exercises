@@ -6,9 +6,12 @@ use scrypto::prelude::*;
 //   - Broccoli
 // Don't forget to add a call to the `derive` macro with ScryptoCategorize, ScryptoEncode, ScryptoDecode, LegacyDescribe and Debug.
 // This last one, Debug, is neccessary as we are going to display it's value.
-
-
-
+#[derive(ScryptoCategorize, ScryptoEncode, ScryptoDecode, LegacyDescribe, Debug)]
+enum Vegetable {
+    Tomato,
+    Carrot,
+    Broccoli
+}
 
 #[blueprint]
 mod exercise_module {
