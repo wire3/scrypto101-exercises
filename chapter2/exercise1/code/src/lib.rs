@@ -19,11 +19,11 @@ mod exercise_module {
         // Step 1: Add two variables here.
         //   - One u64 named `instantiated_at`. This will contain the epoch at which the component was instantiated
         //   - One String named `instantiator_name`
-        let instantiated_at: u64;
-        let instantiator_name: String;
+        instantiated_at: u64,
+        instantiator_name: String,
 
         // Step 5: Add a variable of type Vegetable named `favorite_vegetable`
-        let favorite_vegetable: Vegetable;
+        favorite_vegetable: Vegetable,
     }
 
     impl Exercise1 {
@@ -32,11 +32,11 @@ mod exercise_module {
             Self {
                 // Step 3: Assign a value to the `instantiated_at` and `instantiator_name` variables.
                 // Help: You can get the current epoch with `Runtime::current_epoch()`
-                instantiated_at: Runtime::current_epoch();
-                instantiator_name: instantiator_name;
+                instantiated_at: Runtime::current_epoch(),
+                instantiator_name: instantiator_name,
 
                 // Step 6: Assign a value to the `favorite_vegetable` variable
-                favorite_vegetable: Vegetable::Broccoli;
+                favorite_vegetable: Vegetable::Broccoli,
             }
             .instantiate()
             .globalize()
